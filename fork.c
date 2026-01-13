@@ -8,7 +8,7 @@
 
 
 void doSomeWork(char* name){
-    const int NUM_TIMES = 5;
+    const int NUM_TIMES = 2;
     for(int i = 0; i < NUM_TIMES; i++){
         sleep(rand() % 4);
         printf("Done pass %d for %s \n",i,name);
@@ -35,12 +35,14 @@ int main(){
 
     //We must be the parent 
     printf("I am the parent waiting for child to end\n");
-    doSomeWork("Parent");
+    sleep(10);
+    // doSomeWork("Parent");
     int status = 0;
     pid_t childPid = wait(&status);
     printf("Parent knows child %d ending with status %d\n",(int)childPid,status);
     int  childExitStatus = WEXITSTATUS(status);
     printf("The Return value is %d\n",childExitStatus);
+    sleep(60);
 
 
     return 0;
