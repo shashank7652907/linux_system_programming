@@ -1,11 +1,12 @@
-OUT = fork.out
-SRC = fork.c
+TARGETS = fork helloExec execDemo selfExec
 
-$(OUT): $(SRC)
-	gcc  $< -o $@ -std=c99 -Wall -Werror
+CC     = gcc
+CFLAGS = -Wall -g -std=c99 -Werror
 
-run: $(OUT)
-	./$<
+all: $(TARGETS)
+
+%: %.c
+	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -f *.out
+	-$(RM) $(TARGETS)
