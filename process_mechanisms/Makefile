@@ -1,5 +1,4 @@
-TARGETS = fork helloExec execDemo selfExec
-
+TARGETS = bogosort fork_exec exec_with_env
 CC     = gcc
 CFLAGS = -Wall -g -std=c99 -Werror
 
@@ -9,4 +8,4 @@ all: $(TARGETS)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	-$(RM) $(TARGETS)
+	-$(RM) $(TARGETS) 
