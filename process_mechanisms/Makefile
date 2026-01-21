@@ -1,4 +1,4 @@
-TARGETS = bogosort fork_exec exec_with_env
+TARGETS = bogosort fork_exec exec_with_env fork_codevault
 CC     = gcc
 CFLAGS = -Wall -g -std=c99 -Werror
 
