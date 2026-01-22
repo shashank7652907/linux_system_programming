@@ -20,7 +20,7 @@ int main(int argc,char* argv[]){
     //execl : L denotes list arguments
 
     execl("/usr/bin/ping",
-        "pings",
+        "ping",
         "-c",
         "4",
         "google.com",
