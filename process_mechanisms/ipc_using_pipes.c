@@ -39,5 +39,7 @@ int main(int argc, char* argv[]){
         }
         close(fd[0]);
         printf("Last byte  from child process : 0x%x\n",y);
+        wait(NULL);
     }
+    return 0;
 }
