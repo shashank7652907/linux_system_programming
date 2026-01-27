@@ -1,4 +1,4 @@
-TARGETS = count
+TARGETS = mutex semaphore
 CC     = gcc
 CFLAGS = -Wall -g -std=c99 -Werror
 
