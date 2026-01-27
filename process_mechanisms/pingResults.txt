@@ -1,0 +1,7 @@
+PING google.com (142.251.223.238) 56(84) bytes of data.
+64 bytes from lcmaaa-al-in-f14.1e100.net (142.251.223.238): icmp_seq=1 ttl=118 time=19.1 ms
+
+--- google.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 19.092/19.092/19.092/0.000 ms
+20.258/20.258/0.000 ms
