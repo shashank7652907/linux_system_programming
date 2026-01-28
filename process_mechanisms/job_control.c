@@ -11,7 +11,6 @@
 
 void handler_sigstp(int sig){
     printf("Stop not allowed\n");
-
 }
 
 int main(int argc, char* argv[]){
@@ -26,6 +25,7 @@ int main(int argc, char* argv[]){
     //We can use this signal function
     //But read manual page of signal of why we don't
     //Issue : portability
+    //So please read man page of signal
     // signal(SIGTSTP, &handler_sigstp);
     
 
