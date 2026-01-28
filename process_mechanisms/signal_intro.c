@@ -1,4 +1,4 @@
-#define _POSIX_C_SOURCE 200809L
+#define _DEFAULT_SOURCE
 //For errors in compiling 
 
 #include <stdio.h>
@@ -17,16 +17,13 @@ int main(int argc, char* argv[]){
     if(pid == -1) return 1;
 
     if(pid == 0){
-        //Child process
-        struct timespec ts;
-        ts.tv_sec = 0;
-        ts.tv_nsec = 50 * 1000 * 1000; // 50 ms
         int i = 1;
+        //Child process
         while(1){
             
             printf("Something : %d \n",i);
             i++;
-            nanosleep(&ts, NULL);
+            usleep(50000);
         }
     }
     else{
