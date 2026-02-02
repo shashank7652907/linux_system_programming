@@ -21,10 +21,6 @@ int main(int argc, char* argv[]){
 
     int pid = fork();
     
-    
-
-
-
     if(pid == -1){
         perror("Fork failed");
         return 1;
@@ -54,6 +50,8 @@ int main(int argc, char* argv[]){
             perror("Writing array failed");
             return 3;
         }
+
+        close(fd[1]);
 
         printf("Array is sent\n");
         
