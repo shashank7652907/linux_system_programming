@@ -2,8 +2,8 @@
 # by Brian Fraser
 #
 # Edit this file to compile extra C files into their own program
-# sum_on_thread sum_on_many_threads sum_using_malloc
-TARGETS= intro_on_thread sum_on_thread sum_on_many_threads sum_using_malloc
+# sum_on_thread sum_on_many_threads sum_using_malloc intro_on_thread main-threads main-processes mutex_thread
+TARGETS= thread_create_loop
 
 CROSS_TOOL =
 CC_CPP = $(CROSS_TOOL)g++
