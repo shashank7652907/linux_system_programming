@@ -23,16 +23,12 @@ int main(int argc, char* argv[]){
     sleep(2);
     printf("X value is %d\n",x);
 
-
-
     printf("Process id : %d\n",getpid());
 
     if(pid != 0){
         //Parent process only
         wait(NULL);
     }
-
-   
 
     return 0;
 }
