@@ -3,8 +3,8 @@
 #
 # Edit this file to compile extra C files into their own program
 # sum_on_thread sum_on_many_threads sum_using_malloc intro_on_thread main-threads main-processes mutex_thread thread_create_loop argumentThread trylockMutex conditionalVariablesMutex condBroadcastMutex tryLockExample
-# pthreadExit barrierThread
-TARGETS =  exampleBarrierThread
+# pthreadExit barrierThread exampleBarrierThread
+TARGETS =  idPthread_t
 
 CROSS_TOOL =
 CC_CPP = $(CROSS_TOOL)g++
