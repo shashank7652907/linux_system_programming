@@ -3,14 +3,14 @@
 #
 # Edit this file to compile extra C files into their own program
 # sum_on_thread sum_on_many_threads sum_using_malloc intro_on_thread main-threads main-processes mutex_thread thread_create_loop argumentThread trylockMutex conditionalVariablesMutex condBroadcastMutex tryLockExample
-# pthreadExit barrierThread exampleBarrierThread idPthread_t
-TARGETS =  detachThread detached_threads
+# pthreadExit barrierThread exampleBarrierThread idPthread_t detachThread detached_threads deadlock
+TARGETS =  recursiveMutex
 
 CROSS_TOOL =
 CC_CPP = $(CROSS_TOOL)g++
 CC_C   = $(CROSS_TOOL)gcc
 
-CFLAGS = -Wall -g -std=c99 -Werror -pthread
+CFLAGS = -Wall -g -std=gnu99 -Werror -pthread
 
 all: clean $(TARGETS)
 
@@ -19,4 +19,3 @@ $(TARGETS):
 
 clean:
 	rm -f $(TARGETS)
-
