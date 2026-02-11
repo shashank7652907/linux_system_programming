@@ -1,6 +1,6 @@
-#TARGETS = sig_int
+#TARGETS = sig_int count_occurance_of_signal
 
-TARGETS =  count_occurance_of_signal
+TARGETS =   handle_signal_once
 
 CROSS_TOOL = 
 CC_CPP = $(CROSS_TOOL)g++
