@@ -1,4 +1,6 @@
-TARGETS =  sig_int
+#TARGETS = sig_int
+
+TARGETS =  count_occurance_of_signal
 
 CROSS_TOOL = 
 CC_CPP = $(CROSS_TOOL)g++
