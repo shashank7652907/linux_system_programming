@@ -21,19 +21,13 @@ int main()
 	//So that no value is set or reset
 	memset(&sa, 0, sizeof(sa));
 	
-	//We are ignorig the signal using SIG_IGN
-	sa.sa_handler   = SIG_IGN;
+    //We are using handler function to replace sigint
+    sa.sa_handler   = handler;
 	sigaction(SIGINT, &sa, NULL);
 	
 	for(i = 0; i < 20; i++)
 	{
 		printf("Hmmmmm\n");
-		if(i == 5){
-			//We are restoring it again to default 
-			//Using SIG_DFL
-			sa.sa_handler = SIG_DFL;
-			sigaction(SIGINT, &sa, NULL);
-		}
 		sleep(1);
 	}
 	return 1;
