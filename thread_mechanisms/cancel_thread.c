@@ -30,14 +30,15 @@ void *thread_function(void *arg)
 		printf("Thread function is still running (%d) ...\n", i);
 		sleep(1);
 	}
-	pthread_exit(NULL); // Never returns
+	return 0;
 }
 
 int main()
 {
 	int res;
 	pthread_t a_thread;
-    
+	void *thread_result;
+
 	res = pthread_create(&a_thread, NULL, &thread_function, NULL);
 	if (res != 0)
 	{
@@ -55,19 +56,10 @@ int main()
 		printf("Thread Cancellation failed");
 		exit(EXIT_FAILURE);
 	}
-	pthread_join(a_thread, NULL);
+	pthread_join(a_thread, &thread_result);
+
+	printf("Thread return status : %s\n",
+		(thread_result == PTHREAD_CANCELED) ? "PTHREAD_CANCELED"
+											: "NOT CANCELLED");
 	exit(EXIT_SUCCESS);
 }
-
-//Output :
-
-/*Thread_fuction is running
-Thread function is still running (0) ...
-Thread function is still running (1) ...
-Thread function is still running (2) ...
-Cancelling thread ...
-Thread function is still running (3) ...
-Thread function is still running (4) ...
-Thread function is still running (5) ...
-Thread function is still running (6) ...
-Thread function is still running (7) ...*/
