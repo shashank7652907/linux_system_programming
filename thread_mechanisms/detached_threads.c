@@ -1,37 +1,49 @@
-#include <pthread.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <time.h>
+#include <pthread.h>
 
-#define THREAD_NUM 2
+void* thread_function(void* thread_arg)
+{
+	int i = 10;
 
-void* routine(void* args) {
-    sleep(1);
-    printf("Finished execution\n");
-    return NULL;
+	/* Do work here... */
+	while (i--)
+	{
+		printf("Thread Working\n");
+		sleep(1);
+	}
+	return NULL;
 }
 
-int main(int argc, char *argv[]) {
-    pthread_t th[THREAD_NUM];
-    pthread_attr_t detachedThread;
-    pthread_attr_init(&detachedThread);
-    pthread_attr_setdetachstate(&detachedThread, PTHREAD_CREATE_DETACHED);
-    
-    int i;
-    for (i = 0; i < THREAD_NUM; i++) {
-        if (pthread_create(&th[i], &detachedThread, &routine, NULL) != 0) {
-            perror("Failed to create thread");
-        }
-        // pthread_detach(th[i]);
-    }
+int main()
+{
+	pthread_attr_t attr;
+	pthread_t thread;
 
-    for (i = 0; i < THREAD_NUM; i++) {
-        if (pthread_join(th[i], NULL) != 0) {
-            perror("Failed to join thread");
-        }
-    }
-    pthread_attr_destroy(&detachedThread);
-    pthread_exit(0);
+	// 1: Initialize the attribute object
+	pthread_attr_init(&attr);
+
+	// 2: Modify attribute to set the state to PTHREAD_CREATE_DETACHED
+	pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+	
+	// 3: Create the thread with above attribute
+	if(pthread_create(&thread, &attr, thread_function, NULL) != 0){
+		perror("Thread creation failed");
+		return 1;
+	}
+	
+	/* Do work here... */
+
+	//Tried joining threads but we they cant be joined as they are detached threads
+	if(pthread_join(thread, NULL) != 0){
+		perror("Thread join failed");
+		return 2;
+	}
+	// 4: De-Initialize the attribute object
+	pthread_attr_destroy(&attr);
+	while (1)
+	{
+		printf("Process Working\n");
+		sleep(2);
+	}
+	return 0;
 }
