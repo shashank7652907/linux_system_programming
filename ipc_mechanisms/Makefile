@@ -1,4 +1,5 @@
-TARGETS = mutex semaphore
+# TARGETS = mutex semaphore
+TARGETS = prod_cons
 CC     = gcc
 CFLAGS = -Wall -g -std=c99 -Werror
 
